@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs1ic4ct6gaxe"]
+
+[ext_resource type="SpriteFrames" uid="uid://bupeydiug5f8i" path="res://sprite_frames/mercurio.tres" id="1_golfq"]
+
+[node name="BotonPlaneta" type="Button"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(58.000023, 40)
+scale = Vector2(0.31499973, 0.31499973)
+sprite_frames = ExtResource("1_golfq")

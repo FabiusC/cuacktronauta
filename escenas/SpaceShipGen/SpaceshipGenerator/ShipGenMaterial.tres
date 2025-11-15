@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://SpaceshipGenerator/ShipGenerator.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/mirrorX = true
+shader_param/mirrorY = false
+shader_param/seed = 9.605
+shader_param/complexity = 2.858
+shader_param/width = 1.0
+shader_param/height = 0.58
+shader_param/border_width = 0.08
+shader_param/alpha_width = 0.04
+shader_param/alpha_cutoff = 0.67
+shader_param/color1 = Color( 0.172549, 0.909804, 0.960784, 1 )
+shader_param/color2 = Color( 0.0705882, 0.305882, 0.537255, 1 )
+shader_param/border_color = Color( 1, 1, 1, 1 )

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2a8t2qmxyhrc"]
+
+[ext_resource type="Script" uid="uid://c6weget4tafpv" path="res://escenas/planeta/sol.gd" id="1_scbuh"]
+[ext_resource type="SpriteFrames" uid="uid://ldj7d7vsmv4v" path="res://sprite_frames/sol.tres" id="2_scbuh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8gpq"]
+radius = 6.171808
+
+[node name="Sol" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_scbuh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_scbuh")
+frame_progress = 0.16724108
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(-16.21, -16.21)
+shape = SubResource("CircleShape2D_a8gpq")
+debug_color = Color(2.8878452e-07, 0.57264626, 0.83697236, 0.41960785)

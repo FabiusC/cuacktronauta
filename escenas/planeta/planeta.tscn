@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://co84be3pxd0cn"]
+
+[ext_resource type="Script" uid="uid://kw10hta1786i" path="res://escenas/planeta/planeta.gd" id="1_a8gpq"]
+[ext_resource type="PackedScene" uid="uid://dmovuv48w7t5u" path="res://escenas/planeta/proyectil.tscn" id="2_a8gpq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71sg6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8gpq"]
+radius = 2.505113
+
+[node name="Planeta" type="Node2D"]
+script = ExtResource("1_a8gpq")
+masa = null
+radio_orbita = null
+velocidad_orbital = null
+factor_base_disparo = null
+factor_base_cooldown = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_71sg6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -3.1415927
+scale = Vector2(16.21, 16.21)
+shape = SubResource("CircleShape2D_a8gpq")
+debug_color = Color(2.8878452e-07, 0.57264626, 0.83697236, 0.41960785)
+
+[node name="Proyectil" parent="." instance=ExtResource("2_a8gpq")]

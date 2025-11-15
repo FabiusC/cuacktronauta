@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1exr35jhq1gw"]
+
+[ext_resource type="Texture2D" uid="uid://cbc5l3noqxyg4" path="res://Assets/GUI/Logo.png" id="1_dvl6i"]
+[ext_resource type="Script" uid="uid://cps47bd4piixg" path="res://escenas/ui/menu_principal.gd" id="1_oyyhc"]
+[ext_resource type="Texture2D" uid="uid://dpy85vpunngbe" path="res://Assets/GUI/BasePantalla.png" id="2_qbi18"]
+[ext_resource type="Texture2D" uid="uid://dn052iowwgog8" path="res://Assets/Planetas/Pantalla_sol.png" id="3_oyyhc"]
+[ext_resource type="Texture2D" uid="uid://eu76o65cg808" path="res://Assets/Becka Cuack/Becka.png" id="4_bnlnw"]
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oyyhc")
+
+[node name="Fondo" type="ColorRect" parent="."]
+self_modulate = Color(3.008172e-08, 0.11683767, 0.19366202, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContenedorPrincipal" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1152.0
+offset_bottom = -68.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ContenedorBotones" type="VBoxContainer" parent="ContenedorPrincipal"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 34
+
+[node name="Jugar" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
+layout_mode = 2
+text = "Jugar"
+
+[node name="Cargar" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
+layout_mode = 2
+text = "Cargar"
+
+[node name="Puntajes" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
+layout_mode = 2
+text = "Puntajes"
+
+[node name="Salir" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
+layout_mode = 2
+text = "Salir"
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(583, 221.00002)
+scale = Vector2(0.5861066, 0.58610654)
+texture = ExtResource("1_dvl6i")
+
+[node name="Pantalla" type="Sprite2D" parent="."]
+position = Vector2(292, 600)
+scale = Vector2(0.5861066, 0.58610654)
+texture = ExtResource("2_qbi18")
+
+[node name="PantallaSol" type="Sprite2D" parent="."]
+position = Vector2(281, 604.00006)
+scale = Vector2(0.5861066, 0.58610654)
+texture = ExtResource("3_oyyhc")
+
+[node name="Becka" type="Sprite2D" parent="."]
+position = Vector2(111.999985, 559.99994)
+scale = Vector2(0.44342762, 0.44342762)
+texture = ExtResource("4_bnlnw")
+
+[connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Jugar" to="." method="_on_jugar_pressed"]

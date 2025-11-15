@@ -1,0 +1,355 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://SpaceshipGenerator/ShipGen.gd" type="Script" id=1]
+[ext_resource path="res://SpaceshipGenerator/circle.png" type="Texture" id=2]
+[ext_resource path="res://SpaceshipGenerator/Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://SpaceshipGenerator/Theme.tres" type="Theme" id=4]
+[ext_resource path="res://SpaceshipGenerator/ShipGenMaterial.tres" type="Material" id=5]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 3.15
+glow_strength = 0.6
+glow_blend_mode = 0
+glow_hdr_threshold = 0.08
+glow_bicubic_upscale = true
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.0620915, 0.934641, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 540, 540, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.02
+scale_random = 0.05
+color_ramp = SubResource( 3 )
+hue_variation = 0.16
+hue_variation_random = 1.0
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.68188
+margin_right = 1.68188
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Particles2D" type="Particles2D" parent="HBoxContainer"]
+show_behind_parent = true
+position = Vector2( 540, 540 )
+amount = 30
+lifetime = 10.0
+preprocess = 10.0
+visibility_rect = Rect2( -540, -540, 1080, 1080 )
+process_material = SubResource( 4 )
+texture = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+material = ExtResource( 5 )
+margin_right = 1080.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 1080, 1080 )
+rect_pivot_offset = Vector2( 540, 540 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GUI" type="Control" parent="HBoxContainer"]
+margin_left = 1084.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/GUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 50.0
+margin_right = -50.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/GUI/VBoxContainer"]
+margin_right = 786.0
+margin_bottom = 1030.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer"]
+margin_right = 786.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 150 )
+
+[node name="Seed" type="VBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 391.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer/Seed"]
+margin_right = 391.0
+margin_bottom = 39.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Seed:"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer/Seed"]
+margin_top = 43.0
+margin_right = 391.0
+margin_bottom = 82.0
+size_flags_horizontal = 3
+theme = ExtResource( 4 )
+text = "9605"
+max_length = 5
+
+[node name="Random" type="VBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 395.0
+margin_right = 786.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer/Random"]
+margin_right = 391.0
+margin_bottom = 39.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer/Random"]
+margin_top = 43.0
+margin_right = 391.0
+margin_bottom = 82.0
+theme = ExtResource( 4 )
+text = "Random"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer"]
+margin_top = 154.0
+margin_right = 786.0
+margin_bottom = 229.0
+
+[node name="Width" type="VBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 391.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer2/Width"]
+margin_right = 391.0
+margin_bottom = 39.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Width"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer2/Width"]
+margin_top = 43.0
+margin_right = 391.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 4 )
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Height" type="VBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 395.0
+margin_right = 786.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer2/Height"]
+margin_right = 391.0
+margin_bottom = 39.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Height"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer2/Height"]
+margin_top = 43.0
+margin_right = 391.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 4 )
+max_value = 1.0
+step = 0.01
+value = 0.58
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer"]
+margin_top = 233.0
+margin_right = 786.0
+margin_bottom = 383.0
+rect_min_size = Vector2( 0, 150 )
+
+[node name="Complexity" type="VBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer4"]
+margin_right = 391.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer4/Complexity"]
+margin_right = 391.0
+margin_bottom = 39.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Complexity"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer4/Complexity"]
+margin_top = 43.0
+margin_right = 391.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 4 )
+min_value = 1.6
+max_value = 6.0
+step = 0.01
+value = 2.9
+
+[node name="Size" type="VBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer4"]
+margin_left = 395.0
+margin_right = 786.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer4/Size"]
+margin_right = 391.0
+margin_bottom = 39.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Size"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer4/Size"]
+margin_top = 43.0
+margin_right = 391.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 4 )
+min_value = 0.5
+max_value = 1.0
+step = 0.01
+value = 0.67
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer"]
+margin_top = 387.0
+margin_right = 786.0
+margin_bottom = 537.0
+rect_min_size = Vector2( 0, 150 )
+
+[node name="MirrorX" type="CheckBox" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer3"]
+margin_right = 391.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+pressed = true
+text = "Mirror X"
+flat = true
+
+[node name="MirrorY" type="CheckBox" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer3"]
+margin_left = 395.0
+margin_right = 786.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+text = "Mirror Y"
+flat = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer"]
+margin_top = 541.0
+margin_right = 786.0
+margin_bottom = 691.0
+rect_min_size = Vector2( 0, 150 )
+
+[node name="Color1" type="VBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5"]
+margin_right = 259.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5/Color1"]
+margin_right = 259.0
+margin_bottom = 39.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Color 1"
+
+[node name="Color1" type="ColorPickerButton" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5/Color1"]
+margin_top = 43.0
+margin_right = 259.0
+margin_bottom = 63.0
+color = Color( 0.172549, 0.909804, 0.960784, 1 )
+
+[node name="Color2" type="VBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5"]
+margin_left = 263.0
+margin_right = 522.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5/Color2"]
+margin_right = 259.0
+margin_bottom = 39.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Color 2"
+
+[node name="Color2" type="ColorPickerButton" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5/Color2"]
+margin_top = 43.0
+margin_right = 259.0
+margin_bottom = 63.0
+color = Color( 0.0705882, 0.305882, 0.537255, 1 )
+
+[node name="BorderColor" type="VBoxContainer" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5"]
+margin_left = 526.0
+margin_right = 786.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5/BorderColor"]
+margin_right = 260.0
+margin_bottom = 39.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Border color"
+
+[node name="BorderColor" type="ColorPickerButton" parent="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5/BorderColor"]
+margin_top = 43.0
+margin_right = 260.0
+margin_bottom = 63.0
+color = Color( 1, 1, 1, 1 )
+[connection signal="text_changed" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer/Seed/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="pressed" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer/Random/Button" to="." method="_on_Button_pressed"]
+[connection signal="value_changed" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer2/Width/HSlider" to="." method="_on_width_HSlider_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer2/Height/HSlider" to="." method="_on_height_HSlider_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer4/Complexity/HSlider" to="." method="_on_complexity_HSlider_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer4/Size/HSlider" to="." method="_on_size_HSlider_value_changed"]
+[connection signal="toggled" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer3/MirrorX" to="." method="_on_MirrorX_toggled"]
+[connection signal="toggled" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer3/MirrorY" to="." method="_on_MirrorY_toggled"]
+[connection signal="color_changed" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5/Color1/Color1" to="." method="_on_Color1_color_changed"]
+[connection signal="color_changed" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5/Color2/Color2" to="." method="_on_Color2_color_changed"]
+[connection signal="color_changed" from="HBoxContainer/GUI/VBoxContainer/VBoxContainer/HBoxContainer5/BorderColor/BorderColor" to="." method="_on_BorderColor_color_changed"]
