@@ -1,10 +1,10 @@
-extends RigidBody2D
+extends Area2D
 
 @export var masa: float = 1000000.0
 @export var radio_orbita: float = 0.0
 @export var velocidad_inicial: float = 0.0
 
-var sol: RigidBody2D = null
+var sol: Area2D = null
 const G: float = 6.67430e-11
 const ESCALA_GRAVEDAD: float = 1000.0
 

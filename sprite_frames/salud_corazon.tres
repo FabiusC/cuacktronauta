@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dw2lr177saka"]
+
+[ext_resource type="Texture2D" uid="uid://cbr6dwiw1yxch" path="res://Assets/Planetas/health.png" id="1_tnco2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84mpr"]
+atlas = ExtResource("1_tnco2")
+region = Rect2(68, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wdq3"]
+atlas = ExtResource("1_tnco2")
+region = Rect2(51, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjy14"]
+atlas = ExtResource("1_tnco2")
+region = Rect2(34, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu8xs"]
+atlas = ExtResource("1_tnco2")
+region = Rect2(17, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uksxj"]
+atlas = ExtResource("1_tnco2")
+region = Rect2(0, 0, 17, 17)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84mpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wdq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjy14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu8xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uksxj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

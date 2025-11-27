@@ -3,13 +3,19 @@
 [ext_resource type="Script" uid="uid://c72qrm2tk4qy2" path="res://escenas/planeta/proyectil.gd" id="1_822g2"]
 [ext_resource type="Texture2D" uid="uid://3oxnrha2jciy" path="res://Assets/Planetas/proyectil.png" id="1_hf1jm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_822g2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_822g2"]
+radius = 12.0
 
-[node name="Proyectil" type="RigidBody2D"]
+[node name="Proyectil" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_822g2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_hf1jm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_822g2")
+position = Vector2(4, 0)
+shape = SubResource("CircleShape2D_822g2")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

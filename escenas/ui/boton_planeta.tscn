@@ -1,10 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs1ic4ct6gaxe"]
+[gd_scene load_steps=4 format=3 uid="uid://bs1ic4ct6gaxe"]
 
+[ext_resource type="Script" uid="uid://p6kwpp4xdfba" path="res://escenas/ui/boton_planeta.gd" id="1_6yi1v"]
 [ext_resource type="SpriteFrames" uid="uid://bupeydiug5f8i" path="res://sprite_frames/mercurio.tres" id="1_golfq"]
+[ext_resource type="SpriteFrames" uid="uid://dw2lr177saka" path="res://sprite_frames/salud_corazon.tres" id="2_6yi1v"]
 
 [node name="BotonPlaneta" type="Button"]
+anchors_preset = -1
+anchor_right = 0.022000002
+anchor_bottom = 0.039
+offset_right = -17.344002
+offset_bottom = -17.272001
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_6yi1v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(58.000023, 40)
-scale = Vector2(0.31499973, 0.31499973)
+z_index = 1
+position = Vector2(40, 40)
+scale = Vector2(0.2, 0.2)
 sprite_frames = ExtResource("1_golfq")
+
+[node name="IconoSalud" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(60, 60)
+scale = Vector2(0.36764708, 0.3676471)
+sprite_frames = ExtResource("2_6yi1v")
+frame_progress = 0.7655933

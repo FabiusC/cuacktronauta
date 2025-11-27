@@ -5,9 +5,13 @@
 [node name="SelectorPlanetas" type="CanvasLayer"]
 script = ExtResource("1_5gbt8")
 
-[node name="ContenedorBotones" type="HBoxContainer" parent="."]
-anchors_preset = 15
+[node name="ContenedorBotones" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.91600007
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
+offset_left = 96.767944
+offset_top = 324.0
+offset_bottom = -324.0
+grow_horizontal = 0
 grow_vertical = 2

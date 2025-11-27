@@ -8,23 +8,24 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8gpq"]
 radius = 2.505113
 
-[node name="Planeta" type="Node2D"]
+[node name="Planeta" type="Area2D" groups=["cuerpos_celestes"]]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_a8gpq")
-masa = null
-radio_orbita = null
-velocidad_orbital = null
-factor_base_disparo = null
-factor_base_cooldown = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_71sg6")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -3.1415927
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["cuerpos_celestes"]]
+light_mask = 7
+visibility_layer = 7
+rotation = 3.1415925
 scale = Vector2(16.21, 16.21)
 shape = SubResource("CircleShape2D_a8gpq")
 debug_color = Color(2.8878452e-07, 0.57264626, 0.83697236, 0.41960785)
 
 [node name="Proyectil" parent="." instance=ExtResource("2_a8gpq")]
+
+[node name="CooldownTimer" type="Timer" parent="."]

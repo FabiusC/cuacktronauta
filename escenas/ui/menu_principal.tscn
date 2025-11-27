@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cbc5l3noqxyg4" path="res://Assets/GUI/Logo.png" id="1_dvl6i"]
 [ext_resource type="Script" uid="uid://cps47bd4piixg" path="res://escenas/ui/menu_principal.gd" id="1_oyyhc"]
 [ext_resource type="Texture2D" uid="uid://dpy85vpunngbe" path="res://Assets/GUI/BasePantalla.png" id="2_qbi18"]
-[ext_resource type="Texture2D" uid="uid://dn052iowwgog8" path="res://Assets/Planetas/Pantalla_sol.png" id="3_oyyhc"]
 [ext_resource type="Texture2D" uid="uid://eu76o65cg808" path="res://Assets/Becka Cuack/Becka.png" id="4_bnlnw"]
+[ext_resource type="Texture2D" uid="uid://cq3kchsij41bq" path="res://Assets/Planetas/Pantalla_sol.png" id="4_oyyhc"]
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -19,19 +19,28 @@ script = ExtResource("1_oyyhc")
 self_modulate = Color(3.008172e-08, 0.11683767, 0.19366202, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = -12.316001
+anchor_top = -14.102
+anchor_right = 19.095001
+anchor_bottom = 18.886002
+offset_left = -3891.9668
+offset_top = -1176.9043
+offset_right = -3892.4414
+offset_bottom = -1177.1289
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ContenedorPrincipal" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1152.0
-offset_bottom = -68.0
+anchors_preset = -1
+anchor_left = -7.215
+anchor_top = -7.2420006
+anchor_right = 7.1440005
+anchor_bottom = 7.1370006
+offset_left = -0.3203125
+offset_top = -0.18359375
+offset_right = 0.111328125
+offset_bottom = 0.22363281
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -44,38 +53,48 @@ theme_override_constants/separation = 34
 
 [node name="Jugar" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 500
 text = "Jugar"
 
 [node name="Cargar" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 500
 text = "Cargar"
 
 [node name="Puntajes" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 500
 text = "Puntajes"
 
 [node name="Salir" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 500
 text = "Salir"
 
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(583, 221.00002)
-scale = Vector2(0.5861066, 0.58610654)
+position = Vector2(0, -1112)
+scale = Vector2(8.407863, 8.407862)
 texture = ExtResource("1_dvl6i")
 
+[node name="PantallaSol" type="Sprite2D" parent="."]
+position = Vector2(-2976.9998, 4168)
+scale = Vector2(10.058333, 10.058334)
+texture = ExtResource("4_oyyhc")
+
 [node name="Pantalla" type="Sprite2D" parent="."]
-position = Vector2(292, 600)
-scale = Vector2(0.5861066, 0.58610654)
+position = Vector2(-2830, 4066)
+scale = Vector2(8.876, 8.876)
 texture = ExtResource("2_qbi18")
 
-[node name="PantallaSol" type="Sprite2D" parent="."]
-position = Vector2(281, 604.00006)
-scale = Vector2(0.5861066, 0.58610654)
-texture = ExtResource("3_oyyhc")
-
 [node name="Becka" type="Sprite2D" parent="."]
-position = Vector2(111.999985, 559.99994)
-scale = Vector2(0.44342762, 0.44342762)
+position = Vector2(-5345, 3051)
+scale = Vector2(8.903, 8.903)
 texture = ExtResource("4_bnlnw")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.07, 0.07)
+
 [connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Cargar" to="." method="_on_cargar_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Puntajes" to="." method="_on_puntajes_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Salir" to="." method="_on_salir_pressed"]

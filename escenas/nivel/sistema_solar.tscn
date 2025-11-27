@@ -3,5 +3,4 @@
 [ext_resource type="Script" uid="uid://chs6aymb0rgjy" path="res://escenas/nivel/sistema_solar.gd" id="1_n0qtw"]
 
 [node name="SistemaSolar" type="Node2D"]
-position = Vector2(608, 319)
 script = ExtResource("1_n0qtw")
