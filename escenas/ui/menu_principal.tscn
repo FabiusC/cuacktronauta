@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1exr35jhq1gw"]
 
-[ext_resource type="Texture2D" uid="uid://cbc5l3noqxyg4" path="res://Assets/GUI/Logo.png" id="1_dvl6i"]
+[ext_resource type="Texture2D" uid="uid://cbc5l3noqxyg4" path="res://assets/gui/Logo.png" id="1_dvl6i"]
 [ext_resource type="Script" uid="uid://cps47bd4piixg" path="res://escenas/ui/menu_principal.gd" id="1_oyyhc"]
-[ext_resource type="Texture2D" uid="uid://dpy85vpunngbe" path="res://Assets/GUI/BasePantalla.png" id="2_qbi18"]
-[ext_resource type="Texture2D" uid="uid://eu76o65cg808" path="res://Assets/Becka Cuack/Becka.png" id="4_bnlnw"]
-[ext_resource type="Texture2D" uid="uid://cq3kchsij41bq" path="res://Assets/Planetas/Pantalla_sol.png" id="4_oyyhc"]
-[ext_resource type="AudioStream" uid="uid://dlgcosadp8hrw" path="res://Assets/Sonidos/inicio.mp3" id="6_bnlnw"]
-[ext_resource type="AudioStream" uid="uid://dhi7kswm63l0q" path="res://Assets/Sonidos/Beckahabla.mp3" id="7_rcnmj"]
+[ext_resource type="Texture2D" uid="uid://dpy85vpunngbe" path="res://assets/gui/BasePantalla.png" id="2_qbi18"]
+[ext_resource type="Texture2D" uid="uid://eu76o65cg808" path="res://assets/becka cuack/Becka.png" id="4_bnlnw"]
+[ext_resource type="Texture2D" uid="uid://cq3kchsij41bq" path="res://assets/planetas/Pantalla_sol.png" id="4_oyyhc"]
+[ext_resource type="AudioStream" uid="uid://dlgcosadp8hrw" path="res://assets/sonidos/inicio.mp3" id="6_bnlnw"]
+[ext_resource type="AudioStream" uid="uid://dhi7kswm63l0q" path="res://assets/sonidos/Beckahabla.mp3" id="7_rcnmj"]
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3

@@ -2,7 +2,7 @@ extends CanvasLayer
 const MENU_PRINCIPAL_SCENE = "res://escenas/ui/menu_principal.tscn"
 
 func _ready():
-	get_tree().paused = true
+	get_tree().paused = false
 	
 func _on_continuar_pressed():
 	get_tree().paused = false

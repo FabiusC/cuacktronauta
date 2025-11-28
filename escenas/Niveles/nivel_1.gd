@@ -1,7 +1,7 @@
 extends Node2D
 
 const MENU_PAUSA_SCENE = preload("res://escenas/ui/menu_pausa.tscn")
-const NAVE_SCENE = preload("res://escenas/nivel/Nave.tscn")
+const NAVE_SCENE = preload("res://escenas/nivel/nave.tscn")
 const PANTALLA_PERDISTE_SCENE = preload("res://escenas/ui/pantalla_perdiste.tscn")
 
 @onready var sistema_solar = $SistemaSolar

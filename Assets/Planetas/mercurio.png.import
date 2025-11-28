@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gf2x74wqliv"
-path="res://.godot/imported/mercurio.png-cd1343c998e1e39a30b91486377edd03.ctex"
+path="res://.godot/imported/mercurio.png-83249a2eb306e9083f21be1b2fbe770d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Planetas/mercurio.png"
-dest_files=["res://.godot/imported/mercurio.png-cd1343c998e1e39a30b91486377edd03.ctex"]
+source_file="res://assets/planetas/mercurio.png"
+dest_files=["res://.godot/imported/mercurio.png-83249a2eb306e9083f21be1b2fbe770d.ctex"]
 
 [params]
 

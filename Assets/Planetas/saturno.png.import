@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpxpygs38dv2b"
-path="res://.godot/imported/saturno.png-a4a6450eb99aac1ef9219650c8746e74.ctex"
+path="res://.godot/imported/saturno.png-4cc5c1987a4cadfed1dd79446f160faf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Planetas/saturno.png"
-dest_files=["res://.godot/imported/saturno.png-a4a6450eb99aac1ef9219650c8746e74.ctex"]
+source_file="res://assets/planetas/saturno.png"
+dest_files=["res://.godot/imported/saturno.png-4cc5c1987a4cadfed1dd79446f160faf.ctex"]
 
 [params]
 

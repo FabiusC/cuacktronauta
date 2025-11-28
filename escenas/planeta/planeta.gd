@@ -17,6 +17,7 @@ var sprite_node: AnimatedSprite2D = null
 # Disparos
 var velocidad_disparo: float = 0.0
 @onready var cooldown_timer: Timer = $CooldownTimer
+
 @onready var sonido_disparo: AudioStreamPlayer2D = $SonidoDisparo
 @onready var sonido_muerte: AudioStreamPlayer2D = $SonidoMuerte
 @onready var sonido_curacion: AudioStreamPlayer2D = $SonidoCuracion

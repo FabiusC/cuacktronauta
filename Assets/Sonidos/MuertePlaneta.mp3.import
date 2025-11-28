@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dfdqhi4qtwud4"
-path="res://.godot/imported/MuertePlaneta.mp3-c8f638ce652dd8fc627b24bbe510f238.mp3str"
+path="res://.godot/imported/MuertePlaneta.mp3-ec9bdec9adf8b205ba3322de59787a11.mp3str"
 
 [deps]
 
-source_file="res://Assets/Sonidos/MuertePlaneta.mp3"
-dest_files=["res://.godot/imported/MuertePlaneta.mp3-c8f638ce652dd8fc627b24bbe510f238.mp3str"]
+source_file="res://assets/sonidos/MuertePlaneta.mp3"
+dest_files=["res://.godot/imported/MuertePlaneta.mp3-ec9bdec9adf8b205ba3322de59787a11.mp3str"]
 
 [params]
 

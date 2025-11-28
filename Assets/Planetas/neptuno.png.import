@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cchq3vths0lq2"
-path="res://.godot/imported/neptuno.png-06ecf467cca9052c2a7eb1fc26f6e31f.ctex"
+path="res://.godot/imported/neptuno.png-193d727c406d797f69e2a81294aae12b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Planetas/neptuno.png"
-dest_files=["res://.godot/imported/neptuno.png-06ecf467cca9052c2a7eb1fc26f6e31f.ctex"]
+source_file="res://assets/planetas/neptuno.png"
+dest_files=["res://.godot/imported/neptuno.png-193d727c406d797f69e2a81294aae12b.ctex"]
 
 [params]
 

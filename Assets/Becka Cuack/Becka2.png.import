@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0e70wkaqi56d"
-path="res://.godot/imported/Becka2.png-bd450416ff50690528668e8792e6cbe9.ctex"
+path="res://.godot/imported/Becka2.png-4910e981a8bc9222ddc4a1b2adacfa23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Becka Cuack/Becka2.png"
-dest_files=["res://.godot/imported/Becka2.png-bd450416ff50690528668e8792e6cbe9.ctex"]
+source_file="res://assets/becka cuack/Becka2.png"
+dest_files=["res://.godot/imported/Becka2.png-4910e981a8bc9222ddc4a1b2adacfa23.ctex"]
 
 [params]
 

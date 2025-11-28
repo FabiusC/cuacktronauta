@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://btrfvyuwtl4go"]
 
-[ext_resource type="Script" uid="uid://0fwbitp0p6m6" path="res://escenas/Niveles/nivel_1.gd" id="1_0f2cn"]
+[ext_resource type="Script" uid="uid://0fwbitp0p6m6" path="res://escenas/niveles/nivel_1.gd" id="1_0f2cn"]
 [ext_resource type="PackedScene" uid="uid://p37w82an13gm" path="res://escenas/nivel/sistema_solar.tscn" id="2_b2gx5"]
 [ext_resource type="PackedScene" uid="uid://dr0ce7gfxef8f" path="res://escenas/ui/selector_planetas.tscn" id="3_uln5s"]
-[ext_resource type="AudioStream" uid="uid://c84lyrwvru57o" path="res://Assets/Sonidos/Sonido Fondo.mp3" id="4_0f2cn"]
+[ext_resource type="AudioStream" uid="uid://c84lyrwvru57o" path="res://assets/sonidos/Sonido Fondo.mp3" id="4_0f2cn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uln5s"]
 size = Vector2(35.892452, 0.46922445)

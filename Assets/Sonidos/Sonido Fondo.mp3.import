@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c84lyrwvru57o"
-path="res://.godot/imported/Sonido Fondo.mp3-8860ed196884372ea24be827e5352cfe.mp3str"
+path="res://.godot/imported/Sonido Fondo.mp3-a0ab53c283ba857ef5e4b4311800d2e5.mp3str"
 
 [deps]
 
-source_file="res://Assets/Sonidos/Sonido Fondo.mp3"
-dest_files=["res://.godot/imported/Sonido Fondo.mp3-8860ed196884372ea24be827e5352cfe.mp3str"]
+source_file="res://assets/sonidos/Sonido Fondo.mp3"
+dest_files=["res://.godot/imported/Sonido Fondo.mp3-a0ab53c283ba857ef5e4b4311800d2e5.mp3str"]
 
 [params]
 

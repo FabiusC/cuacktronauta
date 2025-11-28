@@ -61,22 +61,26 @@ func _ready():
 		planeta.radio_orbita = datos.radio
 		planeta.velocidad_orbital = VELOCIDADES_ORBITALES[datos.nombre]
 		
-		if planeta.has_node("AnimatedSprite2D") and datos.has("sprite_frames_path") and FileAccess.file_exists(datos.sprite_frames_path):
-			var sprite_node = planeta.get_node("AnimatedSprite2D")
-			sprite_node.sprite_frames = load(datos.sprite_frames_path)
-			sprite_node.play("default")
-			sprite_node.scale = Vector2(datos.scale_factor, datos.scale_factor)
-			if planeta.has_node("CollisionShape2D"):
-				var hitbox = planeta.get_node("CollisionShape2D")
-				var textura = sprite_node.sprite_frames.get_frame_texture("default", 0)
-				var radio_imagen = textura.get_width() / 2.0
-				var forma_circular = CircleShape2D.new()
-				forma_circular.radius = radio_imagen - (radio_imagen/8)
-				hitbox.shape = forma_circular
-				hitbox.scale = Vector2(datos.scale_factor, datos.scale_factor)
-				hitbox.add_to_group("cuerpos_celestes")
-		else:
-			print("Advertencia: El planeta ", datos.nombre, " no tiene CollisionShape2D")
+		if datos.has("sprite_frames_path") and ResourceLoader.exists(datos.sprite_frames_path):
+			if planeta.has_node("AnimatedSprite2D") and datos.has("sprite_frames_path"):
+				if ResourceLoader.exists(datos.sprite_frames_path):
+					var sprite_node = planeta.get_node("AnimatedSprite2D")
+					sprite_node.sprite_frames = load(datos.sprite_frames_path)
+					sprite_node.play("default")
+					sprite_node.scale = Vector2(datos.scale_factor, datos.scale_factor)
+					if planeta.has_node("CollisionShape2D"):
+						var hitbox = planeta.get_node("CollisionShape2D")
+						var textura = sprite_node.sprite_frames.get_frame_texture("default", 0)
+						var radio_imagen = textura.get_width() / 2.0
+						var forma_circular = CircleShape2D.new()
+						forma_circular.radius = radio_imagen - (radio_imagen/8)
+						hitbox.shape = forma_circular
+						hitbox.scale = Vector2(datos.scale_factor, datos.scale_factor)
+						hitbox.add_to_group("cuerpos_celestes")
+					else:
+						print("Advertencia: El planeta ", datos.nombre, " no tiene CollisionShape2D")
+				else: 
+					print("No encuentra el SpriteFrames (ResourceLoader) para ", datos.nombre)
 		#Angulo aleatorio
 		var angulo_aleatorio_inicial = rng.randf_range(0.0, PI * 2)
 		planeta.angulo_actual = angulo_aleatorio_inicial
@@ -104,7 +108,6 @@ func _ready():
 
 func seleccionar_planeta(nuevo_planeta: Area2D):
 	if "en_zona_activa" in nuevo_planeta and not nuevo_planeta.en_zona_activa:
-		print("No se puede seleccionar: El planeta está en la zona oscura.")
 		return
 	if planeta_seleccionado:
 		planeta_seleccionado.set_saturacion(false)

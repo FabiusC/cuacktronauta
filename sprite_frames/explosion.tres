@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://ch4l6abd8j8fx"]
 
-[ext_resource type="Texture2D" uid="uid://bo3plkq2ploxt" path="res://Assets/Nave/Ship1.png" id="1_ggbno"]
-[ext_resource type="Texture2D" uid="uid://cscqfy271veo1" path="res://Assets/Nave/Explosion.png" id="1_sxshv"]
-[ext_resource type="Texture2D" uid="uid://cjyxm7yb210hl" path="res://Assets/Nave/Ship2.png" id="2_aekmc"]
-[ext_resource type="Texture2D" uid="uid://c3bebjm37i0uj" path="res://Assets/Nave/Ship3.png" id="3_x6pft"]
+[ext_resource type="Texture2D" uid="uid://bo3plkq2ploxt" path="res://assets/nave/Ship1.png" id="1_ggbno"]
+[ext_resource type="Texture2D" uid="uid://cscqfy271veo1" path="res://assets/nave/Explosion.png" id="1_sxshv"]
+[ext_resource type="Texture2D" uid="uid://cjyxm7yb210hl" path="res://assets/nave/Ship2.png" id="2_aekmc"]
+[ext_resource type="Texture2D" uid="uid://c3bebjm37i0uj" path="res://assets/nave/Ship3.png" id="3_x6pft"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6cly"]
 atlas = ExtResource("1_ggbno")

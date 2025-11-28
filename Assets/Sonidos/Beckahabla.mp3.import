@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dhi7kswm63l0q"
-path="res://.godot/imported/Beckahabla.mp3-cbbfb04bc35883456877e23b615f2970.mp3str"
+path="res://.godot/imported/Beckahabla.mp3-5b360ffec925385ffcb8f36f341d3a59.mp3str"
 
 [deps]
 
-source_file="res://Assets/Sonidos/Beckahabla.mp3"
-dest_files=["res://.godot/imported/Beckahabla.mp3-cbbfb04bc35883456877e23b615f2970.mp3str"]
+source_file="res://assets/sonidos/Beckahabla.mp3"
+dest_files=["res://.godot/imported/Beckahabla.mp3-5b360ffec925385ffcb8f36f341d3a59.mp3str"]
 
 [params]
 

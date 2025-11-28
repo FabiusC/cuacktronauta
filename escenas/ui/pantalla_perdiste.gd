@@ -2,7 +2,7 @@ extends CanvasLayer
 
 const RUTA_ARCHIVO = "user://mejores_puntajes.save"
 const MENU_PRINCIPAL_PATH = "res://escenas/ui/menu_principal.tscn"
-const NIVEL_1_PATH = "res://escenas/Niveles/nivel_1.tscn"
+const NIVEL_1_PATH = "res://escenas/niveles/nivel_1.tscn"
 
 @onready var label_puntaje = $VBoxContainer/LabelPuntajeFinal
 @onready var input_nombre = $VBoxContainer/InputNombre
