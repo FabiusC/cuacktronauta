@@ -94,7 +94,56 @@ texture = ExtResource("4_bnlnw")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.07, 0.07)
 
+[node name="PanelPuntajes" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.465
+anchor_top = -7.4860005
+anchor_right = 7.4750004
+anchor_bottom = 7.682
+offset_left = -0.3203125
+offset_top = -0.071777344
+offset_right = -0.20019531
+offset_bottom = 0.063964844
+color = Color(0, 0.38431373, 0.54509807, 0.5882353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelPuntajes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -31.0
+offset_right = 67.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelPuntajes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 541
+text = "Mejores Puntajes"
+
+[node name="ItemList" type="ItemList" parent="PanelPuntajes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="BotonCerrarPuntajes" type="Button" parent="PanelPuntajes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 541
+text = "Volver"
+
 [connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Cargar" to="." method="_on_cargar_pressed"]
 [connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Puntajes" to="." method="_on_puntajes_pressed"]
 [connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="PanelPuntajes/VBoxContainer/BotonCerrarPuntajes" to="." method="_on_boton_cerrar_puntajes_pressed"]
+[connection signal="pressed" from="PanelPuntajes/VBoxContainer/BotonCerrarPuntajes" to="." method="_on_boton_cerrar_pressed"]

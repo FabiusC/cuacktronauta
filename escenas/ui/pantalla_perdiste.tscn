@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://db2dgy234yrvo"]
+
+[ext_resource type="Script" uid="uid://c3e5ohb5sqxdv" path="res://escenas/ui/pantalla_perdiste.gd" id="1_fpvug"]
+
+[node name="PantallaPerdiste" type="CanvasLayer"]
+script = ExtResource("1_fpvug")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15294118, 0.015686275, 0.11764706, 0.5882353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Perdiste!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reiniciar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Reiniciar"
+
+[node name="Salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Salir"
+
+[node name="LabelPuntajeFinal" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="InputNombre" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Tu Nombre"
+
+[node name="BotonGuardar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Guardar"
+
+[node name="ListaPuntajes" type="ItemList" parent="VBoxContainer"]
+layout_mode = 2
+auto_height = true
+
+[connection signal="pressed" from="VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

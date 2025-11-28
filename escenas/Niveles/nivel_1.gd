@@ -2,6 +2,7 @@ extends Node2D
 
 const MENU_PAUSA_SCENE = preload("res://escenas/ui/menu_pausa.tscn")
 const NAVE_SCENE = preload("res://escenas/nivel/Nave.tscn")
+const PANTALLA_PERDISTE_SCENE = preload("res://escenas/ui/pantalla_perdiste.tscn") # Ajusta la ruta
 
 @onready var sistema_solar = $SistemaSolar
 @onready var spawn_timer = $SpawnTimer
@@ -10,10 +11,11 @@ const NAVE_SCENE = preload("res://escenas/nivel/Nave.tscn")
 @onready var label_anuncio_nivel = $HUD/LabelAnuncioNivel 
 @onready var marker_spawn = $MarkerSpawn
 @export var ronda_actual: int = 1
-@export var factor_vel_nave: float = 1000.0
+@export var factor_vel_nave: float = 8000.0
 
 var timer_ronda_ref: Timer
 var puntuacion: int = 0
+var juego_terminado: bool = false
 
 func _ready():
 	randomize()
@@ -25,6 +27,30 @@ func _ready():
 		label_anuncio_nivel.visible = false
 		
 	configurar_timer_ronda()
+
+func _process(delta):
+	if juego_terminado: 
+		return
+	verificar_condicion_derrota()
+
+#Logica Juego
+func verificar_condicion_derrota():
+	if not sistema_solar: return
+	
+	var planetas_vivos = 0
+	for nodo in sistema_solar.get_children():
+		if nodo is Area2D and nodo.name != "Jupiter" and nodo.name != "Sol":
+			if "is_dead" in nodo:
+				if nodo.is_dead == false:
+					planetas_vivos += 1
+	if planetas_vivos == 0:
+		game_over()
+
+func game_over():
+	juego_terminado = true
+	Global.puntos_actuales = puntuacion
+	var pantalla = PANTALLA_PERDISTE_SCENE.instantiate()
+	add_child(pantalla)
 
 func sumar_puntos(cantidad: int):
 	puntuacion += cantidad
@@ -48,7 +74,7 @@ func configurar_timer_ronda():
 	if not timer_ronda_ref.timeout.is_connected(_on_pre_ronda_terminada):
 		timer_ronda_ref.timeout.connect(_on_pre_ronda_terminada)
 	timer_ronda_ref.start()
-	
+
 func _on_pre_ronda_terminada():
 	print("Fase final de ronda (5 segundos sin spawn)")
 	spawn_timer.stop()
@@ -91,22 +117,31 @@ func _on_spawn_timer_timeout():
 
 func spawn_lote(cantidad: int):
 	for i in range(cantidad):
-		var delay = randf_range(0.9, 1.9)
+		var delay = randf_range(0.0, 0.1)
 		get_tree().create_timer(delay).timeout.connect(generar_nave)
 
 func generar_nave():
 	if not sistema_solar: return
 	#Seleccion de objetivo
 	var objetivos_validos = []
+	var nodo_sol = null
 	for nodo in sistema_solar.get_children():
-		if nodo is Area2D and nodo.name != "Jupiter" and nodo.name != "Sol":
-			if "is_dead" in nodo and nodo.is_dead == false:
+		if nodo is Area2D and nodo.name != "Jupiter":
+			var esta_vivo = true
+			if "is_dead" in nodo and nodo.is_dead:
+				esta_vivo = false
+			var esta_activo = true
+			if "en_zona_activa" in nodo and not nodo.en_zona_activa:
+				esta_activo = false
+			if esta_vivo and esta_activo:
 				objetivos_validos.append(nodo)
-			elif not "is_dead" in nodo:
-				objetivos_validos.append(nodo)
-	if objetivos_validos.is_empty():
+	var objetivo_seleccionado = null
+	if not objetivos_validos.is_empty():
+		objetivo_seleccionado = objetivos_validos.pick_random()
+	elif nodo_sol:
+		objetivo_seleccionado = nodo_sol
+	else:
 		return
-	var objetivo_seleccionado = objetivos_validos.pick_random()
 	var spawn_y = -350
 	var min_x = -500
 	var max_x = 500

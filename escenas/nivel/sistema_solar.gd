@@ -71,7 +71,7 @@ func _ready():
 				var textura = sprite_node.sprite_frames.get_frame_texture("default", 0)
 				var radio_imagen = textura.get_width() / 2.0
 				var forma_circular = CircleShape2D.new()
-				forma_circular.radius = radio_imagen
+				forma_circular.radius = radio_imagen - (radio_imagen/8)
 				hitbox.shape = forma_circular
 				hitbox.scale = Vector2(datos.scale_factor, datos.scale_factor)
 				hitbox.add_to_group("cuerpos_celestes")
