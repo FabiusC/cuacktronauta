@@ -4,15 +4,22 @@ const NIVEL_SCENE = "res://escenas/niveles/nivel_1.tscn"
 const RUTA_ARCHIVO = "user://mejores_puntajes.save"
 
 @onready var menu_botones = $ContenedorPrincipal/ContenedorBotones
+@onready var logo = $Logo
 @onready var panel_puntajes = $PanelPuntajes
 @onready var lista_puntajes = $PanelPuntajes/VBoxContainer/ItemList
 @onready var boton_cerrar_puntajes = $PanelPuntajes/VBoxContainer/BotonCerrarPuntajes
+@onready var panel_lore = $PanelLore
+@onready var boton_cerrar_lore = $PanelLore/VBoxContainer/BotonCerrarLore
+@onready var sonido_inicio = $SonidoInicio
+@onready var sonido_pato = $SonidoPato
 
 func _ready():
 	if panel_puntajes:
 		panel_puntajes.visible = false
 	if boton_cerrar_puntajes and not boton_cerrar_puntajes.pressed.is_connected(_on_boton_cerrar_puntajes_pressed):
 		boton_cerrar_puntajes.pressed.connect(_on_boton_cerrar_puntajes_pressed)
+	if sonido_inicio:
+		sonido_inicio.play()
 
 func _on_jugar_pressed():
 	print("Cargando nivel...")
@@ -21,9 +28,6 @@ func _on_jugar_pressed():
 func _on_salir_pressed():
 	get_tree().quit()
 	pass 
-
-func _on_cargar_pressed():
-	pass
 
 func _on_puntajes_pressed():
 	if menu_botones: menu_botones.visible = false
@@ -67,3 +71,17 @@ func mostrar_puntajes():
 				lista_puntajes.add_item("Error en formato de datos.")
 		else:
 			lista_puntajes.add_item("Error al leer archivo.")
+
+
+func _on_boton_cerrar_lore_pressed():
+	if logo: logo.visible = true
+	if panel_lore: panel_lore.visible = false
+	if boton_cerrar_lore: boton_cerrar_lore.visible = true
+	if sonido_pato: sonido_pato.stop()
+
+
+func _on_contexto___pressed():
+	if menu_botones: menu_botones.visible = false
+	if logo: logo.visible = false
+	if panel_lore: panel_lore.visible = true
+	if sonido_pato: sonido_pato.play()

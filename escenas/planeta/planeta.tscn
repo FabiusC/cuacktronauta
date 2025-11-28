@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://co84be3pxd0cn"]
+[gd_scene load_steps=8 format=3 uid="uid://co84be3pxd0cn"]
 
 [ext_resource type="Script" uid="uid://kw10hta1786i" path="res://escenas/planeta/planeta.gd" id="1_a8gpq"]
 [ext_resource type="AudioStream" uid="uid://bayh2nwrcwj1f" path="res://Assets/Sonidos/Disparo.mp3" id="2_a8gpq"]
 [ext_resource type="AudioStream" uid="uid://r8k24hqm83j3" path="res://Assets/Sonidos/Curacion.mp3" id="3_ukv26"]
+[ext_resource type="AudioStream" uid="uid://dfdqhi4qtwud4" path="res://Assets/Sonidos/MuertePlaneta.mp3" id="4_aersd"]
+[ext_resource type="AudioStream" uid="uid://bo7gxw0xdivkq" path="res://Assets/Sonidos/Seleccion.mp3" id="5_ym0kl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_71sg6"]
 
@@ -34,3 +36,9 @@ stream = ExtResource("2_a8gpq")
 
 [node name="SonidoCuracion" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ukv26")
+
+[node name="SonidoMuerte" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aersd")
+
+[node name="SonidoSeleccion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ym0kl")

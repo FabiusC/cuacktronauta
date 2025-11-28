@@ -18,7 +18,9 @@ var sprite_node: AnimatedSprite2D = null
 var velocidad_disparo: float = 0.0
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var sonido_disparo: AudioStreamPlayer2D = $SonidoDisparo
+@onready var sonido_muerte: AudioStreamPlayer2D = $SonidoMuerte
 @onready var sonido_curacion: AudioStreamPlayer2D = $SonidoCuracion
+@onready var sonido_seleccion: AudioStreamPlayer2D = $SonidoSeleccion
 # Colores y Escenas
 const COLOR_DESATURADO: Color = Color(0.5, 0.5, 0.5, 1.0)
 const COLOR_NORMAL: Color = Color(1.0, 1.0, 1.0, 1.0)
@@ -69,6 +71,8 @@ func morir():
 	health = 0
 	if sprite_node:
 		sprite_node.modulate = COLOR_MUERTO
+	if sonido_muerte:
+		sonido_muerte.play()
 
 func restaurar_salud():
 	if not is_dead:
@@ -142,6 +146,7 @@ func set_selected(selected: bool):
 	is_selected = selected
 	if sprite_node:
 		if is_selected:
+			if sonido_seleccion: sonido_seleccion.play()
 			sprite_node.modulate = COLOR_NORMAL
 		else:
 			sprite_node.modulate = COLOR_DESATURADO
