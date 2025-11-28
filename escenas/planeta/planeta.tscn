@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://co84be3pxd0cn"]
+[gd_scene load_steps=6 format=3 uid="uid://co84be3pxd0cn"]
 
 [ext_resource type="Script" uid="uid://kw10hta1786i" path="res://escenas/planeta/planeta.gd" id="1_a8gpq"]
-[ext_resource type="PackedScene" uid="uid://dmovuv48w7t5u" path="res://escenas/planeta/proyectil.tscn" id="2_a8gpq"]
+[ext_resource type="AudioStream" uid="uid://bayh2nwrcwj1f" path="res://Assets/Sonidos/Disparo.mp3" id="2_a8gpq"]
+[ext_resource type="AudioStream" uid="uid://r8k24hqm83j3" path="res://Assets/Sonidos/Curacion.mp3" id="3_ukv26"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_71sg6"]
 
@@ -26,6 +27,10 @@ scale = Vector2(16.21, 16.21)
 shape = SubResource("CircleShape2D_a8gpq")
 debug_color = Color(2.8878452e-07, 0.57264626, 0.83697236, 0.41960785)
 
-[node name="Proyectil" parent="." instance=ExtResource("2_a8gpq")]
-
 [node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="SonidoDisparo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_a8gpq")
+
+[node name="SonidoCuracion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ukv26")

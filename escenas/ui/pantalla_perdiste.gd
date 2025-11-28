@@ -12,7 +12,7 @@ const NIVEL_1_PATH = "res://escenas/Niveles/nivel_1.tscn"
 var puntajes_guardados: Array = []
 
 func _ready():
-	get_tree().paused = true
+	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if label_puntaje:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://wsnfci74bymx"]
+[gd_scene load_steps=4 format=3 uid="uid://wsnfci74bymx"]
 
 [ext_resource type="Script" uid="uid://b8r6pismli5um" path="res://escenas/nivel/nave.gd" id="1_8goqx"]
+[ext_resource type="AudioStream" uid="uid://prv0ni16tfop" path="res://Assets/Sonidos/explosion.mp3" id="3_26oso"]
 [ext_resource type="SpriteFrames" uid="uid://ch4l6abd8j8fx" path="res://sprite_frames/explosion.tres" id="3_ha62o"]
 
 [node name="Nave" type="Area2D" groups=["nave", "naves_enemigas"]]
@@ -21,3 +22,7 @@ polygon = PackedVector2Array(0, -10, 4, -3, 13, 6, 13, 9, 3, 5, 2, 12, -2, 12, -
 position = Vector2(-14, 16)
 scale = Vector2(2, 2)
 rect = Rect2(-10, -24, 34, 34)
+
+[node name="SonidoExplosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_26oso")
+volume_db = 10.097

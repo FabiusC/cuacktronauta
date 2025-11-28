@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var animated_sprite = $Explosion
 @onready var collision_shape = $CollisionPolygon2D
+@onready var sonido_explosion = $SonidoExplosion
 
 var velocidad: float = 5.0
 var direccion: Vector2 = Vector2.ZERO
@@ -54,6 +55,9 @@ func destroy():
 		var nivel_root = get_tree().root.get_node_or_null("Nivel1")
 		if nivel_root and nivel_root.has_method("sumar_puntos"):
 			nivel_root.sumar_puntos(10)
+	if sonido_explosion:
+		sonido_explosion.pitch_scale = randf_range(0.8, 1.2)
+		sonido_explosion.play()
 	if animated_sprite:
 		animated_sprite.play("default")
 		await animated_sprite.animation_finished

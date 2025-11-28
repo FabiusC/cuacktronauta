@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://btrfvyuwtl4go"]
+[gd_scene load_steps=6 format=3 uid="uid://btrfvyuwtl4go"]
 
 [ext_resource type="Script" uid="uid://0fwbitp0p6m6" path="res://escenas/Niveles/nivel_1.gd" id="1_0f2cn"]
 [ext_resource type="PackedScene" uid="uid://p37w82an13gm" path="res://escenas/nivel/sistema_solar.tscn" id="2_b2gx5"]
 [ext_resource type="PackedScene" uid="uid://dr0ce7gfxef8f" path="res://escenas/ui/selector_planetas.tscn" id="3_uln5s"]
+[ext_resource type="AudioStream" uid="uid://c84lyrwvru57o" path="res://Assets/Sonidos/Sonido Fondo.mp3" id="4_0f2cn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uln5s"]
 size = Vector2(35.892452, 0.46922445)
@@ -70,6 +71,10 @@ scale = Vector2(9.165, 9.165)
 position = Vector2(0, 7.599)
 scale = Vector2(16.975, 16.975)
 shape = SubResource("RectangleShape2D_uln5s")
+
+[node name="MusicaFondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0f2cn")
+autoplay = true
 
 [connection signal="pressed" from="HUD/Pausa" to="." method="_on_pausa_pressed"]
 [connection signal="area_entered" from="ZonaMuerte" to="." method="_on_zona_muerte_area_entered"]

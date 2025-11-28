@@ -2,7 +2,7 @@ extends Node2D
 
 const MENU_PAUSA_SCENE = preload("res://escenas/ui/menu_pausa.tscn")
 const NAVE_SCENE = preload("res://escenas/nivel/Nave.tscn")
-const PANTALLA_PERDISTE_SCENE = preload("res://escenas/ui/pantalla_perdiste.tscn") # Ajusta la ruta
+const PANTALLA_PERDISTE_SCENE = preload("res://escenas/ui/pantalla_perdiste.tscn")
 
 @onready var sistema_solar = $SistemaSolar
 @onready var spawn_timer = $SpawnTimer
@@ -10,8 +10,9 @@ const PANTALLA_PERDISTE_SCENE = preload("res://escenas/ui/pantalla_perdiste.tscn
 @onready var label_puntuacion = $HUD/LabelPuntuacion
 @onready var label_anuncio_nivel = $HUD/LabelAnuncioNivel 
 @onready var marker_spawn = $MarkerSpawn
+# Valores para balance y pruebas
 @export var ronda_actual: int = 1
-@export var factor_vel_nave: float = 8000.0
+@export var factor_vel_nave: float = 5000.0
 
 var timer_ronda_ref: Timer
 var puntuacion: int = 0
@@ -117,29 +118,23 @@ func _on_spawn_timer_timeout():
 
 func spawn_lote(cantidad: int):
 	for i in range(cantidad):
-		var delay = randf_range(0.0, 0.1)
+		var delay = randf_range(0.0, 0.9)
 		get_tree().create_timer(delay).timeout.connect(generar_nave)
 
 func generar_nave():
 	if not sistema_solar: return
 	#Seleccion de objetivo
 	var objetivos_validos = []
-	var nodo_sol = null
 	for nodo in sistema_solar.get_children():
 		if nodo is Area2D and nodo.name != "Jupiter":
 			var esta_vivo = true
 			if "is_dead" in nodo and nodo.is_dead:
 				esta_vivo = false
-			var esta_activo = true
-			if "en_zona_activa" in nodo and not nodo.en_zona_activa:
-				esta_activo = false
-			if esta_vivo and esta_activo:
+			if esta_vivo:
 				objetivos_validos.append(nodo)
 	var objetivo_seleccionado = null
 	if not objetivos_validos.is_empty():
 		objetivo_seleccionado = objetivos_validos.pick_random()
-	elif nodo_sol:
-		objetivo_seleccionado = nodo_sol
 	else:
 		return
 	var spawn_y = -350

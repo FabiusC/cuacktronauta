@@ -17,6 +17,8 @@ var sprite_node: AnimatedSprite2D = null
 # Disparos
 var velocidad_disparo: float = 0.0
 @onready var cooldown_timer: Timer = $CooldownTimer
+@onready var sonido_disparo: AudioStreamPlayer2D = $SonidoDisparo
+@onready var sonido_curacion: AudioStreamPlayer2D = $SonidoCuracion
 # Colores y Escenas
 const COLOR_DESATURADO: Color = Color(0.5, 0.5, 0.5, 1.0)
 const COLOR_NORMAL: Color = Color(1.0, 1.0, 1.0, 1.0)
@@ -65,15 +67,17 @@ func recibir_dano(cantidad: int):
 func morir():
 	is_dead = true
 	health = 0
-	print(name + " ha sido destruido.")
 	if sprite_node:
 		sprite_node.modulate = COLOR_MUERTO
 
 func restaurar_salud():
 	if not is_dead:
-		health = 4
+		health = 5
 		emit_signal("salud_cambiada", health)
+		health = 4
 		set_saturacion(false)
+		if sonido_curacion:
+			sonido_curacion.play()
 
 # Color Planetas
 func set_saturacion(saturado: bool):
@@ -121,6 +125,12 @@ func disparar(direccion_al_cursor: Vector2):
 		if proyectil.has_method("lanzar"):
 			proyectil.lanzar(direccion_al_cursor.normalized(), velocidad_disparo, self)
 		cooldown_timer.start()
+		reproducir_sonido_disparo()
+
+func reproducir_sonido_disparo():
+	if sonido_disparo and sonido_disparo.stream:
+		sonido_disparo.pitch_scale = randf_range(0.9, 1.1)
+		sonido_disparo.play()
 
 func _on_cooldown_timer_timeout():
 	pass

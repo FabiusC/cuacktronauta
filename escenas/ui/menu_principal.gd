@@ -3,10 +3,10 @@ extends Control
 const NIVEL_SCENE = "res://escenas/niveles/nivel_1.tscn"
 const RUTA_ARCHIVO = "user://mejores_puntajes.save"
 
-@onready var menu_botones = $VBoxContainer
+@onready var menu_botones = $ContenedorPrincipal/ContenedorBotones
 @onready var panel_puntajes = $PanelPuntajes
-@onready var lista_puntajes = $PanelPuntajes/ItemList
-@onready var boton_cerrar_puntajes = $PanelPuntajes/BotonCerrar
+@onready var lista_puntajes = $PanelPuntajes/VBoxContainer/ItemList
+@onready var boton_cerrar_puntajes = $PanelPuntajes/VBoxContainer/BotonCerrarPuntajes
 
 func _ready():
 	if panel_puntajes:
@@ -29,19 +29,22 @@ func _on_puntajes_pressed():
 	if menu_botones: menu_botones.visible = false
 	if panel_puntajes: panel_puntajes.visible = true
 	mostrar_puntajes()
-	pass 
 
 func _on_boton_cerrar_puntajes_pressed():
 	if panel_puntajes: panel_puntajes.visible = false
 	if menu_botones: menu_botones.visible = true
 	
 func mostrar_puntajes():
-	if not lista_puntajes: return
+	if not lista_puntajes:
+		print("Error: No se encuentra el nodo ItemList")
+		return
+	
 	lista_puntajes.clear()
 	
 	if not FileAccess.file_exists(RUTA_ARCHIVO):
-		lista_puntajes.add_item("Aún no hay puntajes.")
-		lista_puntajes.add_item("¡Juega para crear el archivo!")
+		print("El archivo de guardado no existe en: ", RUTA_ARCHIVO) 
+		lista_puntajes.add_item("No hay puntajes registrados.")
+		lista_puntajes.add_item("¡Juega una partida para crear la tabla!")
 		return
 
 	var archivo = FileAccess.open(RUTA_ARCHIVO, FileAccess.READ)
@@ -57,5 +60,10 @@ func mostrar_puntajes():
 			if typeof(datos) == TYPE_ARRAY:
 				for i in range(datos.size()):
 					var registro = datos[i]
-					var texto = "%d. %s - %d" % [i+1, registro["nombre"], registro["puntos"]]
+					# Formato: "1. Nombre - 100 pts"
+					var texto = "%d. %s - %d pts" % [i+1, registro["nombre"], registro["puntos"]]
 					lista_puntajes.add_item(texto)
+			else:
+				lista_puntajes.add_item("Error en formato de datos.")
+		else:
+			lista_puntajes.add_item("Error al leer archivo.")

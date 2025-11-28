@@ -26,7 +26,7 @@ anchor_bottom = 18.886002
 offset_left = -3891.9668
 offset_top = -1176.9043
 offset_right = -3892.4414
-offset_bottom = -1177.1289
+offset_bottom = -1176.9688
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -57,6 +57,7 @@ theme_override_font_sizes/font_size = 500
 text = "Jugar"
 
 [node name="Cargar" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 500
 text = "Cargar"
@@ -95,7 +96,6 @@ texture = ExtResource("4_bnlnw")
 zoom = Vector2(0.07, 0.07)
 
 [node name="PanelPuntajes" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -7.465
@@ -110,34 +110,32 @@ color = Color(0, 0.38431373, 0.54509807, 0.5882353)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelPuntajes"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -67.0
-offset_top = -31.0
-offset_right = 67.0
-offset_bottom = 31.0
+anchor_bottom = 1.0
+offset_left = -2257.0
+offset_top = 1301.0
+offset_right = 2257.0
+offset_bottom = -1015.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="PanelPuntajes/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 2
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 541
 text = "Mejores Puntajes"
 
 [node name="ItemList" type="ItemList" parent="PanelPuntajes/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4300)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
+theme_override_font_sizes/font_size = 300
 
 [node name="BotonCerrarPuntajes" type="Button" parent="PanelPuntajes/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 541
 text = "Volver"
 

@@ -33,7 +33,6 @@ func _process(delta: float):
 func _on_impacto(objeto_tocado):
 	if objeto_tocado == planeta_origen:
 		return
-	print("Bala chocó con: ", objeto_tocado.name, " | Grupos: ", objeto_tocado.get_groups())
 	if objeto_tocado.is_in_group("cuerpos_celestes"):
 		queue_free()
 	elif objeto_tocado.is_in_group("naves_enemigas"):
