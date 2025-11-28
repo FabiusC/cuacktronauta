@@ -105,20 +105,21 @@ func iniciar_siguiente_ronda():
 
 func curar_planetas():
 	if not sistema_solar: return
-	for planeta in sistema_solar.get_children():
-		if is_instance_valid(planeta) and planeta.has_method("restaurar_salud"):
-			planeta.restaurar_salud()
+	if ronda_actual % 3 == 0: 
+		for planeta in sistema_solar.get_children():
+			if is_instance_valid(planeta) and planeta.has_method("restaurar_salud"):
+				planeta.restaurar_salud()
 
 # SPAWN DE NAVES
 func _on_spawn_timer_timeout():
-	var factor_n: int = ronda_actual
+	var factor_n: int = ronda_actual + 1
 	var cantidad_lote_l: int = randi_range(0, factor_n)
 	if cantidad_lote_l > 0:
 		spawn_lote(cantidad_lote_l)
 
 func spawn_lote(cantidad: int):
 	for i in range(cantidad):
-		var delay = randf_range(0.0, 0.9)
+		var delay = randf_range(0.0, 0.5)
 		get_tree().create_timer(delay).timeout.connect(generar_nave)
 
 func generar_nave():

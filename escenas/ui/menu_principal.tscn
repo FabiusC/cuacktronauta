@@ -70,6 +70,7 @@ theme_override_font_sizes/font_size = 500
 text = "Puntajes"
 
 [node name="Salir" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 500
 text = "Salir"
@@ -201,5 +202,5 @@ stream = ExtResource("7_rcnmj")
 [connection signal="pressed" from="PanelPuntajes/VBoxContainer/BotonCerrarPuntajes" to="." method="_on_boton_cerrar_pressed"]
 [connection signal="pressed" from="PanelPuntajes/VBoxContainer/BotonCerrarPuntajes" to="." method="_on_boton_cerrar_puntajes_pressed"]
 [connection signal="pressed" from="PanelLore/VBoxContainer/BotonCerrarLore" to="." method="_on_boton_cerrar_pressed"]
-[connection signal="pressed" from="PanelLore/VBoxContainer/BotonCerrarLore" to="." method="_on_boton_cerrar_puntajes_pressed"]
 [connection signal="pressed" from="PanelLore/VBoxContainer/BotonCerrarLore" to="." method="_on_boton_cerrar_lore_pressed"]
+[connection signal="pressed" from="PanelLore/VBoxContainer/BotonCerrarLore" to="." method="_on_boton_cerrar_puntajes_pressed"]

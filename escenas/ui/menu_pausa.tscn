@@ -27,6 +27,7 @@ layout_mode = 2
 text = "Menu"
 
 [node name="SalirDelJuego" type="Button" parent="CenterContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Salir"
 
