@@ -56,11 +56,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 500
 text = "Jugar"
 
-[node name="Cargar" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
-visible = false
+[node name="Contexto -_-" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 500
-text = "Cargar"
+text = "Contexxxto -_-
+"
 
 [node name="Puntajes" type="Button" parent="ContenedorPrincipal/ContenedorBotones"]
 layout_mode = 2
@@ -96,6 +96,7 @@ texture = ExtResource("4_bnlnw")
 zoom = Vector2(0.07, 0.07)
 
 [node name="PanelPuntajes" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -7.465
@@ -139,9 +140,54 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 541
 text = "Volver"
 
+[node name="PanelLore" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.465
+anchor_top = -7.4860005
+anchor_right = 7.4750004
+anchor_bottom = 7.682
+offset_left = -0.3203125
+offset_top = -0.071777344
+offset_right = -0.20019531
+offset_bottom = 0.063964844
+color = Color(0, 0.38431373, 0.54509807, 0.5882353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelLore"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -7905.5
+offset_top = 608.5
+offset_right = 7989.5
+offset_bottom = -322.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelLore/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 541
+text = "Historia
+En un futuro distante, los Patos revelaron su extrema inteligencia y superioridad tecnológica, superando a la humanidad y tomando el control total del Sistema Solar. Los humanos fueron relegados al exilio y abandonados en el espacio a su suerte. Un grupo de supervivientes humanos, la Resistencia, se exilió a las afueras del sistema en una nave solar. Siglos después, lanzan una invasión de naves con el objetivo de recuperar la Tierra o el Sistema Solar entero, tu como general Cuacktronauta debes defender el sistema."
+horizontal_alignment = 1
+vertical_alignment = 3
+autowrap_mode = 2
+
+[node name="BotonCerrarLore" type="Button" parent="PanelLore/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 541
+text = "Volver"
+
 [connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Jugar" to="." method="_on_jugar_pressed"]
-[connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Cargar" to="." method="_on_cargar_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Contexto -_-" to="." method="_on_cargar_pressed"]
 [connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Puntajes" to="." method="_on_puntajes_pressed"]
 [connection signal="pressed" from="ContenedorPrincipal/ContenedorBotones/Salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="PanelPuntajes/VBoxContainer/BotonCerrarPuntajes" to="." method="_on_boton_cerrar_puntajes_pressed"]
 [connection signal="pressed" from="PanelPuntajes/VBoxContainer/BotonCerrarPuntajes" to="." method="_on_boton_cerrar_pressed"]
+[connection signal="pressed" from="PanelLore/VBoxContainer/BotonCerrarLore" to="." method="_on_boton_cerrar_puntajes_pressed"]
+[connection signal="pressed" from="PanelLore/VBoxContainer/BotonCerrarLore" to="." method="_on_boton_cerrar_pressed"]
